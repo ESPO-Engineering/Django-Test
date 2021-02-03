@@ -8,18 +8,27 @@
 
     <head>
         <meta charset="utf-8"></head>
-        <link rel="stylesheet" href="styles.css">
+        <title>Buy Products</title>
+        <style>
+            form {
+             border: 3.5px solid #130066;
+             text-align: center;
+             padding: 10px;
+             margin-top: 1em;
+            }
+        </style>
       
     </head>
 
     <body style="background-color:lightgrey;">
 
         {% include 'nav.html' %}
-        <h3 style="padding-left: 20px">Select a product</h3>
+        <h3 style="text-align: center;">Select a product</h3>
 
-        <label for="item">Select an item:</label>
+        
         <form action="/product/buyProduct" method="POST">
             {% csrf_token %}
+            <label for="item">Select an item:</label>
             <select name="item_name" id="item_name">
                 {% for o in obj %}
 

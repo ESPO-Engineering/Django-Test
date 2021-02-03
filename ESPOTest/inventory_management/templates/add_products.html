@@ -8,8 +8,15 @@
 
     <head>
         <meta charset="utf-8"></head>
-        
-      
+        <title>Add Products</title>      
+       <style>
+       form {
+        border: 3.5px solid #130066;
+        text-align: center;
+        padding: 10px;
+        margin-top: 1em;
+       }
+       </style>
     </head>
 
     <body   style="background-color:lightgrey;">
@@ -18,7 +25,7 @@
 
         
         
-        <div  style="padding-top: 170px; padding-left: 270px;">
+        <div >
         {% if messages %}
             {% for message in messages %}
             <div>
@@ -31,9 +38,9 @@
 
         <form method = "POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <h2 style="padding-left: 150px">Upload a CSV file. </h2>
+            <h2 >Upload a CSV file. </h2>
             <label style="color: rgb(141, 3, 3)"> (The columns in the file should be: index, item_name, quantity, sell_price, buy_price)</label>
-            <p style="padding-left: 100px">
+            <p >
             <input type="file" name="file">
             <button type="submit">Upload file</button>
             </p>
@@ -42,30 +49,28 @@
         {% endif %}
         </div>
 
-       
-
-
+      
     
     <form action="/products/addSingleProduct" method="POST">
         {% csrf_token %}
-        <label> index   </label>
+        <label> Index   </label>
         <input type="text" id="index" name="index">
     
 
-        <label> item </label>
+        <label> Item </label>
         <input type="text" id="item_name" name="item_name">
     
 
-        <label>  quantity </label>
+        <label> Quantity </label>
         <input type="text" id="quantity" name="quantity">
     
 
-        <label>sell price </label>
+        <label> Sell price </label>
         <input type="text" id="sell_price" name="sell_price">
         
 
         
-        <label>  buy price   </label>
+        <label> Buy price </label>
             <input type="text" id="buy_price" name="buy_price">
 
         
