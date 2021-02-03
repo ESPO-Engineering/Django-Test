@@ -1,0 +1,92 @@
+<!-- Bootstrap Imports -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8"></head>
+        <title>Add Products</title>      
+       <style>
+       form {
+        border: 3.5px solid #130066;
+        text-align: center;
+        padding: 10px;
+        margin-top: 1em;
+       }
+       </style>
+    </head>
+
+    <body   style="background-color:lightgrey;">
+
+        {% include 'nav.html' %}
+
+        
+        
+        <div >
+        {% if messages %}
+            {% for message in messages %}
+            <div>
+                <strong>{{message|safe}}</strong>
+            </div>
+            {% endfor %}
+        {% else %}
+
+       
+
+        <form method = "POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2 >Upload a CSV file. </h2>
+            <label style="color: rgb(141, 3, 3)"> (The columns in the file should be: index, item_name, quantity, sell_price, buy_price)</label>
+            <p >
+            <input type="file" name="file">
+            <button type="submit">Upload file</button>
+            </p>
+        </form>
+
+        {% endif %}
+        </div>
+
+      
+    
+    <form action="/products/addSingleProduct" method="POST">
+        {% csrf_token %}
+        <label> Index   </label>
+        <input type="text" id="index" name="index">
+    
+
+        <label> Item </label>
+        <input type="text" id="item_name" name="item_name">
+    
+
+        <label> Quantity </label>
+        <input type="text" id="quantity" name="quantity">
+    
+
+        <label> Sell price </label>
+        <input type="text" id="sell_price" name="sell_price">
+        
+
+        
+        <label> Buy price </label>
+            <input type="text" id="buy_price" name="buy_price">
+
+        
+        <input type="submit" value="submit" >
+    </form>
+        
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+
+    </body>
+
+
+
+
+</html>
+
