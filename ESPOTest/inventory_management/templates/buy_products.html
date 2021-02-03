@@ -15,8 +15,22 @@
     <body style="background-color:lightgrey;">
 
         {% include 'nav.html' %}
-        
-       
+        <h3 style="padding-left: 20px">Select a product</h3>
+
+        <label for="item">Select an item:</label>
+        <form action="/product/buyProduct" method="POST">
+            {% csrf_token %}
+            <select name="item_name" id="item_name">
+                {% for o in obj %}
+
+                    <option name="name" id="name">{{ o.item_name }}</option>
+
+                {% endfor %}
+            </select>
+            <label>Amount:</label>
+            <input type="text" id="amount" name="amount">
+            <input type="submit" value="submit" >
+        </form>
         
 
 

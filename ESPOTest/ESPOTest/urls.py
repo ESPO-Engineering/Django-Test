@@ -22,5 +22,7 @@ urlpatterns = [
     path('products/buy', buyProducts),
     path('products/add', addProducts),
     path('products/view', viewProducts),
+    path('products/addSingleProduct', addSingleProduct),
+    path('product/buyProduct', buyProduct),
     path('', home),
 ]
